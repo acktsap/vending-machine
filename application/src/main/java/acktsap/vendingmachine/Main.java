@@ -68,13 +68,13 @@ public class Main {
 		init(cashInventory);
 		init(drinkInventory);
 
-		StateCreator createCreator = SimpleCreateCreator.builder()
+		StateCreator stateCreator = SimpleCreateCreator.builder()
 			.machineOutput(machineOutput)
 			.cashInventory(cashInventory)
 			.drinkInventory(drinkInventory)
 			.cardPayment(cardPayment)
 			.build();
-		VendingMachine vendingMachine = new SimpleVendingMachine(createCreator);
+		VendingMachine vendingMachine = new SimpleVendingMachine(stateCreator);
 
 		log.debug("Vending machine started (v0.0.1)");
 

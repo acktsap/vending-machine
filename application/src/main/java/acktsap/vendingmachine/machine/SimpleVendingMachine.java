@@ -12,7 +12,7 @@ public class SimpleVendingMachine implements VendingMachine {
 	private MachineState machineState;
 
 	public SimpleVendingMachine(StateCreator stateCreator) {
-		machineState = stateCreator.init();
+		this.machineState = stateCreator.init();
 	}
 
 	@Override
