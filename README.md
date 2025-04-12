@@ -2,7 +2,8 @@
 
 ## Design
 
-Responsibility
+```text
+== Responsibility ==
 
 Input
 
@@ -20,7 +21,7 @@ Select target
 Check if payment is possible
 Get payment back
 
-Model
+== Model ==
 
 - PaymentType
 - Drink
@@ -41,3 +42,4 @@ State
 - InitState
 - CashTakenState
 - CardTakenState
+```
