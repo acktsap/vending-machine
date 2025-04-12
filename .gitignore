@@ -1,0 +1,22 @@
+# gradle
+.gradle
+build
+
+# idea
+.idea/
+*.iml
+out/
+
+# eclipse
+.settings
+.classpath
+.project
+
+# kotlin
+.kotlin
+
+# macos
+.DS_Store
+
+# direnv
+.envrc
