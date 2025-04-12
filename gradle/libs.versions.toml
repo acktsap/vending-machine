@@ -1,0 +1,28 @@
+# format guide
+# https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
+
+[versions]
+# logging
+slf4j = "2.0.17"
+log4j = "2.24.3"
+
+# tests
+junit = "5.12.+"
+assertj = "3.+"
+mockito = "5.+"
+fixtureMonkey = "1.1.+"
+
+[libraries]
+# logging
+slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+log4j-slf4j = { module = "org.apache.logging.log4j:log4j-slf4j2-impl", version.ref = "log4j" }
+
+# test
+junit = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+assertj = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+mockito = { module = "org.mockito:mockito-core", version.ref = "mockito" }
+fixturemonkey = { module = "com.navercorp.fixturemonkey:fixture-monkey-starter", version.ref = "fixtureMonkey" }
+
+[bundles]
+# java
+test-java = ["junit", "assertj", "mockito", "fixturemonkey"]
