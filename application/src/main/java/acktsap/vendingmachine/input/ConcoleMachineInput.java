@@ -11,7 +11,7 @@ public class ConcoleMachineInput implements MachineInput {
 	private static final String GUIDE_MESSAGE = """
 		Choose type : 1 [Cash], 2 [Card], 3 [Drink], 4 [Cancel]
 		- Cash subtype (1 type) : 1[100], 2[500], 3[1000], 4[5000], 5[10000]
-		- Drink subtype (3 type) : 1[Coke(1100)], 2[Water(600)], 3[Coffee(700)]
+		- Drink subtype (3 type) : 1[VITA500(2000)], 2[Water(1100)], 3[COKE(1500)], 4[CIDAR(700)]
 		e.g) '1 1' (cash & 100 won), '2'(card), '3 2' (drink & water)
 		""".stripIndent();
 	private static final String ERROR_MESSAGE = "Please follow input format";
@@ -96,6 +96,7 @@ public class ConcoleMachineInput implements MachineInput {
 			case "1" -> new DrinkInput(DrinkType.VITA500);
 			case "2" -> new DrinkInput(DrinkType.WATER);
 			case "3" -> new DrinkInput(DrinkType.COKE);
+			case "4" -> new DrinkInput(DrinkType.CIDAR);
 			default -> null;
 		};
 	}
