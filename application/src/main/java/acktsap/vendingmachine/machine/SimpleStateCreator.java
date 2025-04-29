@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 
 @Builder(toBuilder = true)
 @RequiredArgsConstructor
-public class SimpleCreateCreator implements StateCreator {
+class SimpleStateCreator implements StateCreator {
 	@NonNull
 	private final MachineOutput machineOutput;
 

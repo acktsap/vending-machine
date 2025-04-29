@@ -7,9 +7,7 @@ import acktsap.vendingmachine.inventory.CashInventory;
 import acktsap.vendingmachine.inventory.DrinkInventory;
 import acktsap.vendingmachine.inventory.InMemoryCashInventory;
 import acktsap.vendingmachine.inventory.InMemoryDrinkInventory;
-import acktsap.vendingmachine.machine.SimpleCreateCreator;
 import acktsap.vendingmachine.machine.SimpleVendingMachine;
-import acktsap.vendingmachine.machine.StateCreator;
 import acktsap.vendingmachine.machine.VendingMachine;
 import acktsap.vendingmachine.model.Cash;
 import acktsap.vendingmachine.model.Drink;
@@ -69,13 +67,12 @@ public class Main {
 		init(cashInventory);
 		init(drinkInventory);
 
-		StateCreator stateCreator = SimpleCreateCreator.builder()
+		VendingMachine vendingMachine = SimpleVendingMachine.builder()
 			.machineOutput(machineOutput)
 			.cashInventory(cashInventory)
 			.drinkInventory(drinkInventory)
 			.cardPayment(cardPayment)
 			.build();
-		VendingMachine vendingMachine = new SimpleVendingMachine(stateCreator);
 
 		log.debug("Vending machine started (v0.0.1)");
 

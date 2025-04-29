@@ -5,11 +5,20 @@ import acktsap.vendingmachine.input.CardInput;
 import acktsap.vendingmachine.input.CashInput;
 import acktsap.vendingmachine.input.DrinkInput;
 import acktsap.vendingmachine.input.Input;
+import acktsap.vendingmachine.inventory.CashInventory;
+import acktsap.vendingmachine.inventory.DrinkInventory;
+import acktsap.vendingmachine.output.MachineOutput;
+import acktsap.vendingmachine.pg.CardPayment;
 
 public class SimpleVendingMachine implements VendingMachine {
+
+	public static SimpleVendingMachineBuilder builder() {
+		return new SimpleVendingMachineBuilder();
+	}
+
 	private MachineState machineState;
 
-	public SimpleVendingMachine(StateCreator stateCreator) {
+	private SimpleVendingMachine(StateCreator stateCreator) {
 		this.machineState = stateCreator.init();
 	}
 
@@ -23,5 +32,37 @@ public class SimpleVendingMachine implements VendingMachine {
 			case CancelInput c -> nextMachineState = machineState.take(c);
 		}
 		this.machineState = nextMachineState;
+	}
+
+	public static class SimpleVendingMachineBuilder {
+		private final SimpleStateCreator.SimpleStateCreatorBuilder stateCreatorBuilder = SimpleStateCreator.builder();
+
+		private SimpleVendingMachineBuilder() {
+		}
+
+		public SimpleVendingMachineBuilder machineOutput(MachineOutput machineOutput) {
+			this.stateCreatorBuilder.machineOutput(machineOutput);
+			return this;
+		}
+
+		public SimpleVendingMachineBuilder cashInventory(CashInventory cashInventory) {
+			this.stateCreatorBuilder.cashInventory(cashInventory);
+			return this;
+		}
+
+		public SimpleVendingMachineBuilder drinkInventory(DrinkInventory drinkInventory) {
+			this.stateCreatorBuilder.drinkInventory(drinkInventory);
+			return this;
+		}
+
+		public SimpleVendingMachineBuilder cardPayment(CardPayment cardPayment) {
+			this.stateCreatorBuilder.cardPayment(cardPayment);
+			return this;
+		}
+
+		public VendingMachine build() {
+			SimpleStateCreator createCreator = this.stateCreatorBuilder.build();
+			return new SimpleVendingMachine(createCreator);
+		}
 	}
 }
