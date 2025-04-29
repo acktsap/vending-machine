@@ -53,13 +53,11 @@ public class ConcoleMachineInput implements MachineInput {
 
 		String type = matcher.group(0);
 
-		Input input = null;
-		switch (type) {
-			case "2" -> input = new CardInput();
-			case "4" -> input = new CancelInput();
-		}
-
-		return input;
+		return switch (type) {
+			case "2" -> new CardInput();
+			case "4" -> new CancelInput();
+			default -> null;
+		};
 	}
 
 	private Input parseWithSubType(String rawInput) {
@@ -71,13 +69,11 @@ public class ConcoleMachineInput implements MachineInput {
 		String type = matcher.group(1);
 		String subType = matcher.group(2);
 
-		Input input = null;
-		switch (type) {
-			case "1" -> input = parseCashType(subType);
-			case "3" -> input = parseDrinkType(subType);
-		}
-
-		return input;
+		return switch (type) {
+			case "1" -> parseCashType(subType);
+			case "3" -> parseDrinkType(subType);
+			default -> null;
+		};
 	}
 
 	private Input parseCashType(String subType) {

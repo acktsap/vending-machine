@@ -24,14 +24,12 @@ public class SimpleVendingMachine implements VendingMachine {
 
 	@Override
 	public void take(Input input) {
-		MachineState nextMachineState;
-		switch (input) {
-			case CashInput c -> nextMachineState = machineState.take(c);
-			case CardInput c -> nextMachineState = machineState.take(c);
-			case DrinkInput d -> nextMachineState = machineState.take(d);
-			case CancelInput c -> nextMachineState = machineState.take(c);
-		}
-		this.machineState = nextMachineState;
+		this.machineState = switch (input) {
+			case CashInput c -> machineState.take(c);
+			case CardInput c -> machineState.take(c);
+			case DrinkInput d -> machineState.take(d);
+			case CancelInput c -> machineState.take(c);
+		};
 	}
 
 	public static class SimpleVendingMachineBuilder {
