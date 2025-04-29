@@ -9,8 +9,6 @@ public record Cash(
 ) {
 	@Override
 	public String toString() {
-		return "Cash(" +
-			this.cashType.getValue() +
-			')';
+		return "Cash(" + this.cashType.getValue() + ')';
 	}
 }

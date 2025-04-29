@@ -1,4 +1,4 @@
-package acktsap.vendingmachine.state;
+package acktsap.vendingmachine.machine;
 
 import java.util.List;
 
@@ -34,7 +34,6 @@ class CashTakenState implements MachineState {
 	@NonNull
 	private final DrinkInventory drinkInventory;
 
-	@NonNull
 	private final int totalTakenCashAmount;
 
 	@Override

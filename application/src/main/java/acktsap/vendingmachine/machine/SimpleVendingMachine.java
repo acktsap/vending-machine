@@ -5,8 +5,6 @@ import acktsap.vendingmachine.input.CardInput;
 import acktsap.vendingmachine.input.CashInput;
 import acktsap.vendingmachine.input.DrinkInput;
 import acktsap.vendingmachine.input.Input;
-import acktsap.vendingmachine.state.MachineState;
-import acktsap.vendingmachine.state.StateCreator;
 
 public class SimpleVendingMachine implements VendingMachine {
 	private MachineState machineState;

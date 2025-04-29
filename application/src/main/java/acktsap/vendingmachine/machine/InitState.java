@@ -1,4 +1,4 @@
-package acktsap.vendingmachine.state;
+package acktsap.vendingmachine.machine;
 
 import acktsap.vendingmachine.input.CancelInput;
 import acktsap.vendingmachine.input.CardInput;

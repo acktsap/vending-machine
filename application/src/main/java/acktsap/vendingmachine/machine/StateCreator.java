@@ -1,4 +1,4 @@
-package acktsap.vendingmachine.state;
+package acktsap.vendingmachine.machine;
 
 import acktsap.vendingmachine.model.Card;
 import acktsap.vendingmachine.model.Cash;
